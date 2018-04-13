@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  1_in_fruit: MyString
+  2_in_obj: MyString
+  3_in_city: MyString
+  4_in_time: MyString
+  5_in_id: MyString
+  6_in_date: MyString
+  7_in_amt: MyString
+
+two:
+  1_in_fruit: MyString
+  2_in_obj: MyString
+  3_in_city: MyString
+  4_in_time: MyString
+  5_in_id: MyString
+  6_in_date: MyString
+  7_in_amt: MyString

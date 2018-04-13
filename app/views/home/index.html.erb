@@ -1,0 +1,55 @@
+
+<table>
+  <tr>
+    <th>in_fruit_1</th>
+    <th>in_obj_2</th>
+    <th>in_city_3</th>
+    <th>in_time_4</th>
+    <th>in_id_5</th>
+    <th>in_date_6</th>
+    <th>in_amt_7</th>
+    <th>in_bruise_8</th>
+    <th>in_size_9</th>
+
+  </tr>
+  <% @inputs.each do |each_input| %>
+<tr>
+    <td><%= each_input.in_fruit_1 %></td>
+    <td><%= each_input.in_obj_2%></td>
+    <td><%= each_input.in_city_3 %></td>
+    <td><%= each_input.in_time_4 %></td>
+    <td><%= each_input.in_id_5 %></td>
+    <td><%= each_input.in_date_6 %></td>
+    <td><%= each_input.in_amt_7 %></td>
+    <td><%= each_input.in_bruise_8 %></td>
+    <td><%= each_input.in_size_9 %></td>
+
+  </tr>
+  <% end %>
+</table>
+
+<table>
+  <tr>
+    <th>in_fruit_1</th>
+    <th>in_obj_2</th>
+    <th>in_city_3</th>
+    <th>in_time_4</th>
+    <th>in_id_5</th>
+    <th>in_date_6</th>
+    <th>in_amt_7</th>
+
+  </tr>
+  <% @outputs.each do |each_output| %>
+<tr>
+    <td><%= each_output.in_fruit_1 %></td>
+    <td><%= each_output.in_obj_2%></td>
+    <td><%= each_output.in_city_3 %></td>
+    <td><%= each_output.in_time_4 %></td>
+    <td><%= each_output.in_id_5 %></td>
+    <td><%= each_output.in_date_6 %></td>
+    <td><%= each_output.in_amt_7 %></td>
+
+
+  </tr>
+  <% end %>
+</table>
