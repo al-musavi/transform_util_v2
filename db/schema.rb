@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180413114335) do
+ActiveRecord::Schema.define(version: 20180417004745) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,13 +45,13 @@ ActiveRecord::Schema.define(version: 20180413114335) do
   end
 
   create_table "outputs", force: :cascade do |t|
-    t.string "in_fruit_1"
-    t.string "in_obj_2"
-    t.string "in_city_3"
-    t.string "in_time_4"
-    t.string "in_id_5"
-    t.string "in_date_6"
-    t.string "in_amt_7"
+    t.string "out_color_1"
+    t.string "out_shape_2"
+    t.string "out_state_3"
+    t.string "out_daytime_4"
+    t.string "out_id_5"
+    t.string "out_date_6"
+    t.string "out_amt_7"
     t.integer "input_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

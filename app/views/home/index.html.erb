@@ -30,26 +30,16 @@
 
 <table>
   <tr>
-    <th>in_fruit_1</th>
-    <th>in_obj_2</th>
-    <th>in_city_3</th>
-    <th>in_time_4</th>
-    <th>in_id_5</th>
-    <th>in_date_6</th>
-    <th>in_amt_7</th>
-
+    <% @output_column_names.each do |each_column| %>
+    <th><%= each_column %></th>
+    <% end %>
   </tr>
+
   <% @outputs.each do |each_output| %>
 <tr>
-    <td><%= each_output.in_fruit_1 %></td>
-    <td><%= each_output.in_obj_2%></td>
-    <td><%= each_output.in_city_3 %></td>
-    <td><%= each_output.in_time_4 %></td>
-    <td><%= each_output.in_id_5 %></td>
-    <td><%= each_output.in_date_6 %></td>
-    <td><%= each_output.in_amt_7 %></td>
-
-
-  </tr>
+  <% @output_column_names.each do |each_column| %>
+    <td><%= each_output.send(each_column) %></td>
+    <% end %>
+</tr>
   <% end %>
 </table>
