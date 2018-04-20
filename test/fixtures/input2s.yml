@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  in_object: MyString
+  in_food: MyString
+  in_place: MyString
+  in_id: 1
+  in: 2018-04-20
+  in_amt: 1
+
+two:
+  in_object: MyString
+  in_food: MyString
+  in_place: MyString
+  in_id: 1
+  in: 2018-04-20
+  in_amt: 1

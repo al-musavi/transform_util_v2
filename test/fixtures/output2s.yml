@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  out_objshape: MyString
+  out_objcolor: MyString
+  out_foodcolorage: MyString
+  out_placesize: MyString
+  out_id: MyString
+
+two:
+  out_objshape: MyString
+  out_objcolor: MyString
+  out_foodcolorage: MyString
+  out_placesize: MyString
+  out_id: MyString

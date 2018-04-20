@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180417004745) do
+ActiveRecord::Schema.define(version: 20180420142336) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,10 +22,22 @@ ActiveRecord::Schema.define(version: 20180417004745) do
     t.integer "ref_field_source_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "operator"
   end
 
   create_table "dest_fields", force: :cascade do |t|
     t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "input2s", force: :cascade do |t|
+    t.string "in_object"
+    t.string "in_food"
+    t.string "in_place"
+    t.integer "in_id"
+    t.date "in_date"
+    t.integer "in_amt"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -42,6 +54,17 @@ ActiveRecord::Schema.define(version: 20180417004745) do
     t.string "in_size_9"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "output2s", force: :cascade do |t|
+    t.string "out_objshape"
+    t.string "out_objcolor"
+    t.string "out_foodcolorage"
+    t.string "out_placesize"
+    t.string "out_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "input_id"
   end
 
   create_table "outputs", force: :cascade do |t|

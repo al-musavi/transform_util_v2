@@ -43,3 +43,20 @@
 </tr>
   <% end %>
 </table>
+
+<table>
+  <tr>
+    <%# @output2_column_names.each do |each_column| %>
+    <th><%#= each_column %></th>
+    <%# end %>
+  </tr>
+
+  <%# @outputs2.each do |each_output| %>
+<tr>
+  <%# @output2_column_names.each do |each_column| %>
+    <td><%#= each_output.send(each_column) %></td>
+    <%# end %>
+</tr>
+  <%# end %>
+</table>
+
