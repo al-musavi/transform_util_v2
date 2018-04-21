@@ -5,9 +5,7 @@ class ApplicationController < ActionController::Base
 		inputs.each do |each_input|
 			output = output_chooser(output_type, each_input)
 			input_column_names.each do |each_column_name|
-				# if output_type == "output2"
-				# 	byebug
-				# end
+					# byebug
 				output_column_name = (RefFieldSource.find_by name: each_column_name).dest_field.name
 				compare = Compare.find_by(input: each_input.send(each_column_name))
 				if compare == nil 
@@ -16,9 +14,9 @@ class ApplicationController < ActionController::Base
 					ref_field_source = compare.ref_field_source
 					dest_field = ref_field_source.dest_field
 					ref_fields = dest_field.ref_field_sources
-					if output_type == "output2"
-						byebug
-					end
+					# if output_type == "output2"
+					# 	byebug
+					# end
 					if ref_fields.length > 1
 						output.send(output_column_name+'=', get_output_value(compare, ref_fields, each_input, output_column_name, output, output_type))
 					else
