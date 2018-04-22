@@ -53,7 +53,7 @@ def parse_source(source_file_name)
 	p source_csv
 
 	source_csv.each do |each_input|
-		input = Input2.find_or_initialize_by(in_object: each_input[:in_object], in_food: each_input[:in_food], in_place: each_input[:in_place], in_id: each_input[:in_id], in_date: each_input[:in_date], in_amt: each_input[:in_amt])
+		input = Input2.find_or_initialize_by(in_object: each_input[:in_object].downcase, in_food: each_input[:in_food].downcase, in_place: each_input[:in_place].downcase, in_id: each_input[:in_id], in_date: each_input[:in_date], in_amt: each_input[:in_amt])
 		input.save
 	end
 end
@@ -62,20 +62,22 @@ def parse_logic(logic_file_name)
 	logic_csv = SmarterCSV.process(logic_file_name, :row_sep => :auto, :col_sep => ",")
 
 	logic_csv.each do |each_logic|
-		dest_field = DestField.find_or_initialize_by(name: each_logic[:dest_field])
+		dest_field = DestField.find_or_initialize_by(name: each_logic[:dest_field].downcase)
 		dest_field.save
-		ref_field = RefFieldSource.find_or_initialize_by(name: each_logic[:var_source_field], var_level: each_logic[:var_level], dest_field_id: dest_field.id)
+		ref_field = RefFieldSource.find_or_initialize_by(name: each_logic[:var_source_field].downcase, var_level: each_logic[:var_level], dest_field_id: dest_field.id)
 		ref_field.save
 		term_point = each_logic[:term_pt] == "Y" ? true : false
 		compare = Compare.find_or_initialize_by(input: each_logic[:compare_input], output: each_logic[:var_output], term_point: term_point, operator: each_logic[:compare_operator], ref_field_source_id: ref_field.id, dest_field_id: dest_field.id)
 		compare.save
-		p "compare is #{compare.inspect}"
-		p "compare #{compare.errors.full_messages}"
+		
+		p "the compare errors #{compare.errors.full_messages}"
 	end
 end
+Input2.delete_all
 DestField.delete_all
 RefFieldSource.delete_all
 Compare.delete_all
+parse_source("source_table.csv")
 parse_logic("logic_table_v1.csv")
 parse_logic("logic_table_v2.csv")
 

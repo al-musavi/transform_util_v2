@@ -5,22 +5,27 @@ class ApplicationController < ActionController::Base
 		inputs.each do |each_input|
 			output = output_chooser(output_type, each_input)
 			input_column_names.each do |each_column_name|
-					# byebug
-				output_column_name = (RefFieldSource.find_by name: each_column_name).dest_field.name
-				compare = Compare.find_by(input: each_input.send(each_column_name))
-				if compare == nil 
-					output.send(output_column_name+"=", each_input.send(each_column_name)) 
-				else
-					ref_field_source = compare.ref_field_source
-					dest_field = ref_field_source.dest_field
-					ref_fields = dest_field.ref_field_sources
-					# if output_type == "output2"
-					# 	byebug
-					# end
-					if ref_fields.length > 1
-						output.send(output_column_name+'=', get_output_value(compare, ref_fields, each_input, output_column_name, output, output_type))
+				# if each_column_name == "in_object"
+				# 	byebug
+				# end	
+				# ref_field = RefFieldSource.find_by name: each_column_name		
+				all_ref_fields = RefFieldSource.where name: each_column_name		
+				all_ref_fields.each do |ref_field|
+					output_column_name = ref_field.dest_field.name
+					compare = Compare.find_by(input: each_input.send(each_column_name), ref_field_source_id: ref_field.id)
+					if compare == nil 
+						output.send(output_column_name+"=", each_input.send(each_column_name)) 
+					elsif compare.operator == "ELSE"
+						output.send(output_column_name+"=", "NEED TO FIX") 
 					else
-						output.send(output_column_name+'=', compare.output) 
+						ref_field_source = compare.ref_field_source
+						dest_field = ref_field_source.dest_field
+						ref_fields = dest_field.ref_field_sources
+						if ref_fields.length > 1
+							output.send(output_column_name+'=', get_output_value(compare, ref_fields, each_input, output_column_name, output, output_type))
+						else
+							output.send(output_column_name+'=', compare.output) 
+						end
 					end
 				end
 			end
@@ -42,7 +47,11 @@ class ApplicationController < ActionController::Base
 		ref_fields.each do |ref_field|
 			
 			compare = Compare.find_by(input: each_input.send(ref_field.name), ref_field_source_id: ref_field.id)
-			if compare.term_point == true 
+			
+			if compare != nil && compare.term_point == true && compare.operator == "ELSE" 
+				output.send(output_column_name+"=", "NEED TO FIX") 
+				break
+			elsif compare != nil && compare.term_point == true 
 				@final_output = compare.output
 				break
 			end
