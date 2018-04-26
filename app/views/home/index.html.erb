@@ -1,4 +1,4 @@
-
+<!-- 
 <table>
   <tr>
     <th>in_fruit_1</th>
@@ -12,32 +12,32 @@
     <th>in_size_9</th>
 
   </tr>
-  <% @inputs.each do |each_input| %>
+  <%# @inputs.each do |each_input| %>
 <tr>
-    <td><%= each_input.in_fruit_1 %></td>
-    <td><%= each_input.in_obj_2%></td>
-    <td><%= each_input.in_city_3 %></td>
-    <td><%= each_input.in_time_4 %></td>
-    <td><%= each_input.in_id_5 %></td>
-    <td><%= each_input.in_date_6 %></td>
-    <td><%= each_input.in_amt_7 %></td>
-    <td><%= each_input.in_bruise_8 %></td>
-    <td><%= each_input.in_size_9 %></td>
+    <td><%#= each_input.in_fruit_1 %></td>
+    <td><%#= each_input.in_obj_2%></td>
+    <td><%#= each_input.in_city_3 %></td>
+    <td><%#= each_input.in_time_4 %></td>
+    <td><%#= each_input.in_id_5 %></td>
+    <td><%#= each_input.in_date_6 %></td>
+    <td><%#= each_input.in_amt_7 %></td>
+    <td><%#= each_input.in_bruise_8 %></td>
+    <td><%#= each_input.in_size_9 %></td>
 
   </tr>
-  <% end %>
-</table>
+  <%# end %>
+</table> -->
 
 <table>
   <tr>
-    <% @output_column_names.each do |each_column| %>
+    <% @output1_column_names.each do |each_column| %>
     <th><%= each_column %></th>
     <% end %>
   </tr>
 
   <% @outputs.each do |each_output| %>
 <tr>
-  <% @output_column_names.each do |each_column| %>
+  <% @output1_column_names.each do |each_column| %>
     <td><%= each_output.send(each_column) %></td>
     <% end %>
 </tr>
