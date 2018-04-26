@@ -28,33 +28,33 @@
   <%# end %>
 </table> -->
 
-<table>
+<table class="tg">
   <tr>
     <% @output1_column_names.each do |each_column| %>
-    <th><%= each_column %></th>
+    <th class="tg-kbt4"><%= each_column %></th>
     <% end %>
   </tr>
 
   <% @outputs.each do |each_output| %>
 <tr>
   <% @output1_column_names.each do |each_column| %>
-    <td><%= each_output.send(each_column) %></td>
+    <td class="tg-us36"><%= each_output.send(each_column) %></td>
     <% end %>
 </tr>
   <% end %>
 </table>
-
-<table>
+<br>
+<table class="tg">
   <tr>
     <% @output2_column_names.each do |each_column| %>
-    <th><%= each_column %></th>
+    <th class="tg-kbt4"><%= each_column %></th>
     <% end %>
   </tr>
 
   <% @outputs2.each do |each_output| %>
 <tr>
   <% @output2_column_names.each do |each_column| %>
-    <td><%= each_output.send(each_column) %></td>
+    <td class="tg-us36"><%= each_output.send(each_column) %></td>
     <% end %>
 </tr>
   <% end %>
