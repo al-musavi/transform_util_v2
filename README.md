@@ -1,6 +1,6 @@
-#Transform Utility Documentation
+# Transform Utility Documentation
 
-##How to set up Transformation App on Terminal
+## How to set up Transformation App on Terminal
 
 First you need to clone the repository from github
 
