@@ -21,12 +21,12 @@ I usually just save it in Documents but you can create a new folder and save it 
 
 When in the proper folder type
 
-$ git clone https://github.com/RJReliance/Transformation_App.git
+$ git clone https://github.com/al-musavi/transform_util_v2.git
 
 Don’t type the dollar sign that is just so you know to type that line in the terminal
 Then change into that directory by typing
 
-$ cd transform_util/
+$ cd transform_util_v2/
 
 Now you just copied the repository into your terminal
 
